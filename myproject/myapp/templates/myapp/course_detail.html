@@ -1,0 +1,13 @@
+{% extends 'base.html' %}  <!-- Make sure to extend the correct base template -->
+
+{% block content %}  <!-- Open block -->
+    <h1>{{ course.title }} - Detail</h1>
+    <img src="{{ course.image.url }}" alt="{{ course.title }}" width="300px">
+    <p><strong>Instructor:</strong> {{ course.instructor.name }}</p>
+    <p><strong>Price:</strong> {{ course.price }}</p>
+    <p><strong>Duration:</strong> {{ course.duration }}</p>
+    <p><strong>Students Enrolled:</strong> {{ course.students }}</p>
+    <p><strong>Rating:</strong> {{ course.stars }} stars</p>
+    
+    <a href="{{ course.join_url }}">Join Now</a>
+{% endblock %}  <!-- Close block -->

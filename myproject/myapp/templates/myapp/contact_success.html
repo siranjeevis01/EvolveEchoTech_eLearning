@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Contact Success - Greensoft Groups
+{% endblock %}
+
+{% block content %}
+<!-- Header Start -->
+<div class="container-fluid headerbg py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Contact Success</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="textcl" href="{% url 'index' %}"><b>Home</b></a></li>
+                        <li class="breadcrumb-item textcl active" aria-current="page"><b>Contact Success</b></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Contact Success Start -->
+<div class="container py-5">
+    <div class="text-center">
+        <h1 class="mb-4">Thank You!</h1>
+        <p class="lead">Your message has been successfully sent. We will get back to you shortly.</p>
+        <a class="btn btn-secondary" href="{% url 'index' %}">Back to Home</a>
+    </div>
+</div>
+<!-- Contact Success End -->
+{% endblock %}

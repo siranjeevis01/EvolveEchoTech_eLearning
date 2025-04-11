@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Review Submitted - Greensoft Groups
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Review Submitted</h1>
+    <p>Thank you for submitting your review. Your feedback is valuable to us!</p>
+    <a href="{% url 'index' %}">Go back to homepage</a>
+{% endblock %}

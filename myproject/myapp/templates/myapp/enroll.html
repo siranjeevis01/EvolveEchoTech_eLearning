@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Course Enrollment Form{% endblock %}
+
+{% block content %}
+
+<h2>Enroll in {{ course.title }}</h2>
+<p>Instructor: {{ course.instructor }}</p>
+<p>Framework: {{ course.framework }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="full_name" placeholder="Full Name" required>
+    <input type="date" name="dob" required>
+    <input type="text" name="gender" placeholder="Gender" required>
+    <input type="text" name="area" placeholder="Area" required>
+    <input type="text" name="city" placeholder="City" required>
+    <input type="text" name="state" placeholder="State" required>
+    <input type="text" name="zip_code" placeholder="ZIP Code" required>
+    <input type="text" name="phone_number" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="emergency_contact_name" placeholder="Emergency Contact Name" required>
+    <input type="text" name="relationship" placeholder="Relationship" required>
+    <input type="text" name="emergency_phone_number" placeholder="Emergency Phone Number" required>
+    <input type="text" name="course_framework" placeholder="Course Framework" required>
+    <input type="date" name="start_date" required>
+    <input type="text" name="highest_education" placeholder="Highest Education" required>
+    <input type="text" name="institution_name" placeholder="Institution Name" required>
+    <input type="number" name="graduation_year" placeholder="Graduation Year" required>
+    
+    <select name="employment_status" required>
+        <option value="employed">Employed</option>
+        <option value="unemployed">Unemployed</option>
+        <option value="student">Student</option>
+        <option value="self_employed">Self-employed</option>
+        <option value="other">Other</option>
+    </select>
+
+    <textarea name="employer_details" placeholder="Employer Details"></textarea>
+    <input type="text" name="hear_about_course" placeholder="How did you hear about the course?" required>
+    
+    <button type="submit" class="btn btn-info">Register</button>
+</form>
+
+{% endblock %} 
+
+{% comment %} {% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Course Enrollment Form{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h4 class="card-title mb-0">Course Enrollment Form</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Alert -->
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Hurry!</strong> Early bird registration ends in 2 days.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <h2>Enroll in {{ course.title }}</h2>
+<p>Instructor: {{ course.instructor }}</p>
+<p>Framework: {{ course.framework }}</p>
+
+                    {% if confirmation %}
+                        <!-- Include course confirmation -->
+                        {% include 'course_confirmation.html' %}
+                    {% else %}
+                        <!-- Registration Form -->
+                        {% if course.join_now_slug %}
+                        <form method="post" novalidate class="row g-3" action="{% url 'enroll_course' course.join_now_slug %}">
+                        {% else %}
+                            <div class="alert alert-danger">Course slug is not available.</div>
+                        {% endif %}
+                            {% csrf_token %}
+                            <h5 class="mb-3">Personal Information</h5>
+                            <div class="form-group col-md-6">
+                                <label for="full_name">Full Name</label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" value="{{ form.full_name.value|default_if_none:'' }}">
+                                {% if form.full_name.errors %}
+                                    <div class="alert alert-danger">{{ form.full_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" name="dob" value="{{ form.dob.value|default_if_none:'' }}">
+                                {% if form.dob.errors %}
+                                    <div class="alert alert-danger">{{ form.dob.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="gender">Gender</label>
+                                <input type="text" class="form-control" id="gender" name="gender" value="{{ form.gender.value|default_if_none:'' }}">
+                                {% if form.gender.errors %}
+                                    <div class="alert alert-danger">{{ form.gender.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="area">Area</label>
+                                <input type="text" class="form-control" id="area" name="area" value="{{ form.area.value|default_if_none:'' }}">
+                                {% if form.area.errors %}
+                                    <div class="alert alert-danger">{{ form.area.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" name="city" value="{{ form.city.value|default_if_none:'' }}">
+                                {% if form.city.errors %}
+                                    <div class="alert alert-danger">{{ form.city.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" id="state" name="state" value="{{ form.state.value|default_if_none:'' }}">
+                                {% if form.state.errors %}
+                                    <div class="alert alert-danger">{{ form.state.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="zip_code">Zip Code</label>
+                                <input type="text" class="form-control" id="zip_code" name="zip_code" value="{{ form.zip_code.value|default_if_none:'' }}">
+                                {% if form.zip_code.errors %}
+                                    <div class="alert alert-danger">{{ form.zip_code.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ form.phone_number.value|default_if_none:'' }}">
+                                {% if form.phone_number.errors %}
+                                    <div class="alert alert-danger">{{ form.phone_number.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ form.email.value|default_if_none:'' }}">
+                                {% if form.email.errors %}
+                                    <div class="alert alert-danger">{{ form.email.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="emergency_contact_name">Emergency Contact Name</label>
+                                <input type="text" class="form-control" id="emergency_contact_name" name="emergency_contact_name" value="{{ form.emergency_contact_name.value|default_if_none:'' }}">
+                                {% if form.emergency_contact_name.errors %}
+                                    <div class="alert alert-danger">{{ form.emergency_contact_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="relationship">Relationship</label>
+                                <input type="text" class="form-control" id="relationship" name="relationship" value="{{ form.relationship.value|default_if_none:'' }}">
+                                {% if form.relationship.errors %}
+                                    <div class="alert alert-danger">{{ form.relationship.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="emergency_phone_number">Emergency Phone Number</label>
+                                <input type="text" class="form-control" id="emergency_phone_number" name="emergency_phone_number" value="{{ form.emergency_phone_number.value|default_if_none:'' }}">
+                                {% if form.emergency_phone_number.errors %}
+                                    <div class="alert alert-danger">{{ form.emergency_phone_number.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="course_title">Course Title</label>
+                                <select class="form-control" id="course_title" name="course_title">
+                                    {% for choice in form.course_title.field.choices %}
+                                        <option value="{{ choice.0 }}" {% if form.course_title.value == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% if form.course_title.errors %}
+                                    <div class="alert alert-danger">{{ form.course_title.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="course_framework">Course Framework</label>
+                                <input type="text" class="form-control" id="course_framework" name="course_framework" value="{{ form.course_framework.value|default_if_none:'' }}">
+                                {% if form.course_framework.errors %}
+                                    <div class="alert alert-danger">{{ form.course_framework.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="start_date">Start Date</label>
+                                <input type="date" class="form-control" id="start_date" name="start_date" value="{{ form.start_date.value|default_if_none:'' }}">
+                                {% if form.start_date.errors %}
+                                    <div class="alert alert-danger">{{ form.start_date.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="highest_education">Highest Level of Education</label>
+                                <input type="text" class="form-control" id="highest_education" name="highest_education" value="{{ form.highest_education.value|default_if_none:'' }}">
+                                {% if form.highest_education.errors %}
+                                    <div class="alert alert-danger">{{ form.highest_education.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="institution_name">Name of Institution</label>
+                                <input type="text" class="form-control" id="institution_name" name="institution_name" value="{{ form.institution_name.value|default_if_none:'' }}">
+                                {% if form.institution_name.errors %}
+                                    <div class="alert alert-danger">{{ form.institution_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="graduation_year">Graduation Year</label>
+                                <input type="text" class="form-control" id="graduation_year" name="graduation_year" value="{{ form.graduation_year.value|default_if_none:'' }}">
+                                {% if form.graduation_year.errors %}
+                                    <div class="alert alert-danger">{{ form.graduation_year.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="employment_status">Employment Status</label>
+                                <select class="form-control" id="employment_status" name="employment_status">
+                                    {% for choice in form.employment_status.field.choices %}
+                                        <option value="{{ choice.0 }}" {% if form.employment_status.value == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% if form.employment_status.errors %}
+                                    <div class="alert alert-danger">{{ form.employment_status.errors }}</div>
+                                {% endif %}
+                            </div>                            
+                            <div class="form-group col-md-12 mt-3">
+                                <label for="employer_details">Employer Details</label>
+                                <input type="text" class="form-control" id="employer_details" name="employer_details" value="{{ form.employer_details.value|default_if_none:'' }}">
+                                {% if form.employer_details.errors %}
+                                    <div class="alert alert-danger">{{ form.employer_details.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group col-md-12 mt-3">
+                                <label for="hear_about_course">How Did You Hear About The Course?</label>
+                                <input type="text" class="form-control" id="hear_about_course" name="hear_about_course" value="{{ form.hear_about_course.value|default_if_none:'' }}">
+                                {% if form.hear_about_course.errors %}
+                                    <div class="alert alert-danger">{{ form.hear_about_course.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <button type="submit" class="btn btn-info">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- /Registration Form -->
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% endcomment %}
+

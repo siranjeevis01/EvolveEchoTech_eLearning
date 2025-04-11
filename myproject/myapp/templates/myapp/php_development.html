@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}PHP Development - Greensoft Groups{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-info px-3 mt-5">Course</h6>
+            <h1 class="mb-5">PHP Full Stack Development</h1>
+        </div>
+        <!-- Main Content -->
+        <div class="col-md-8">
+            <div class="embed-responsive embed-responsive-16by9 mb-3">
+                <iframe id="youtube-player" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3>Aptitude Made Easy: Ratio & Proportions Full Series - Learn maths #StayHome</h3>
+            <div class="d-flex justify-content-between mt-5">
+                <p class="text-info">Our Studens Reviews</p>
+                <div>
+                    <a href="{% url 'submit_review' %}?course_id={{ course.id }}">
+                        <button class="btn btn-outline-dark btn-sm">Leave a Review</button>
+                    </a>                    
+                    <button onclick="playNextVideo()" class="btn btn-outline-warning btn-sm">Play Next Video</button>
+                    <button class="btn btn-outline-primary btn-sm">Share</button>
+                    <button class="btn btn-outline-secondary btn-sm">Save</button>
+                    <a href="https://wa.link/3izfe6"><button class="btn btn-outline-success btn-sm">Chat</button></a>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h1>Reviews</h1>
+                    {% if reviews %}
+                        <p>
+                            {% for review in reviews %}
+                                {{ review.name }} - {{ review.rating }} stars - {{ review.review }}</li>
+                            {% endfor %}
+                        </p>
+                    {% else %}
+                        <p>No reviews available.</p>
+                    {% endif %}
+                    
+                </div>
+            </div>
+            <!-- Add more comments as needed -->
+        </div>
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <h4>Up Comming Videos</h4>
+            <ul class="list-unstyled">
+                {% for video in videos %}
+                <li class="media mb-3">
+                    {% if video.thumbnail %}
+                        <img src="{{ video.thumbnail.url }}" class="mr-3" alt="Related Video Thumbnail">
+                    {% elif video.thumbnail_url %}
+                        <img src="{{ video.thumbnail_url }}" class="mr-3" alt="Related Video Thumbnail">
+                    {% else %}
+                        <img src="https://via.placeholder.com/64" class="mr-3" alt="Placeholder Thumbnail">
+                    {% endif %}
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">{{ video.title }}</h5>
+                        {{ video.description }}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>            
+            <div class="card">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Files</h6>
+                  <p><a href="https://docs.google.com/document/d/1g7SAGqysA6kmVB_i1d5sD0FJVPHY_HwIN9l5kgqVX2g/edit?usp=drive_link" target="_blank" class="card-link">Common HR questions  </a></p>
+                  <p><a href="https://docs.google.com/document/d/1g7SAGqysA6kmVB_i1d5sD0FJVPHY_HwIN9l5kgqVX2g/edit?usp=drive_link" target="_blank" class="card-link">Common HR questions  </a></p>
+                  <p><a href="https://docs.google.com/document/d/1g7SAGqysA6kmVB_i1d5sD0FJVPHY_HwIN9l5kgqVX2g/edit?usp=drive_link" target="_blank" class="card-link">Common HR questions  </a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-info px-3 mt-5">Explore</h6>
+            <h1 class="mb-5">What You'll See</h1>
+        </div>
+        <nav>
+            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">What You'll Learn</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Course Content</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Instructor</button>
+            </div>
+        </nav>
+        <div class="tab-content p-3 border bg-light" id="nav-tabContent">
+            <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="tick-symbol">&#10004;</span> Use ES6 JavaScript features like arrow functions, the spread operator, const and let, and template literal strings
+                    </li>
+                    <li class="list-group-item">
+                        <span class="tick-symbol">&#10004;</span> Use the Fetch API to load trivia questions from an API
+                    </li>
+                    <li class="list-group-item">
+                        <span class="tick-symbol">&#10004;</span> Store high scores in Local Storage
+                    </li>
+                    <li class="list-group-item">
+                        <span class="tick-symbol">&#10004;</span> Use Flexbox, Animations, and REM units in CSS
+                    </li>
+                    <li class="list-group-item">
+                        <span class="tick-symbol">&#10004;</span> Create a progress bar from scratch
+                    </li>
+                    <li class="list-group-item">
+                        <span class="tick-symbol">&#10004;</span> Create a spinning loader icon from scratch
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <h1>Requirements</h1>
+                <ul>
+                    <li>a text editor (Visual Studio Code suggested)</li>
+                    <li>Google Chrome browser</li>
+                    <li>an excitement to learn!</li>
+                </ul>
+                <h1>Description</h1>
+                <ul>
+                    <li>Save high scores in Local Storage</li>
+                    <li>Create a progress bar</li>
+                    <li>Create a spinning loader icon</li>
+                    <li>Dynamically generate HTML in JavaScript</li>
+                    <li>Fetch trivia questions from Open Trivia DB API</li>
+                </ul>
+                <h1>Who this course is for:</h1>
+                <ul>
+                    <li>Beginner or aspiring Web Developers looking to learn core Web Development skills</li>
+                    <li>Intermediate Web Developers looking to improve their core Web Development Skills</li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div>
+                    <h3 class="card-title"><a href="#" class="text-decoration-none">{{ instructor.name }}</a></h3>
+                    <h3 class="card-subtitle text-muted mb-3">{{ instructor.role }}</h3>
+                    <div class="col-md-12 d-flex align-items-center profile">
+                        <div class="col-md-4 text-center">
+                            {% if instructor.image %}
+                                <img src="{{ instructor.image.url }}" width="200px" height="200px" class="rounded-circle img-fluid mb-3" alt="Instructor Image">
+                            {% elif instructor.image_url %}
+                                <img src="{{ instructor.image.url }}" width="200px" height="200px" class="rounded-circle img-fluid mb-3" alt="Instructor Image">
+                            {% else %}
+                                <img src="https://via.placeholder.com/200" width="200px" height="200px" class="rounded-circle img-fluid mb-3" alt="Placeholder Image">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8 profile-icons">
+                            <!-- Social Media Icons and Contact Information -->
+                            <div class="d-flex align-items-center mb-2">
+                                <!-- Social Media Icons -->
+                            </div>
+                            <!-- Contact Information -->
+                            <a href="mailto:{{ instructor.email }}"><p class="mb-3 d-flex align-items-center"><i class="fa fa-envelope text-danger me-2"></i> {{ instructor.email }}</p></a>
+                            <a href="{{ instructor.linkedin }}"><p class="mb-3 d-flex align-items-center"><i class="fab fa-linkedin text-primary me-2"></i> {{ instructor.linkedin }}</p></a>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h3 class="card-text long-text text-secondary">Bio</h3>
+                        <p class="card-text long-text">{{ instructor.bio }}</p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="adv">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4>Try free courses or enroll in paid courses</h4>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="info-box bg-light">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p class="mb-0">Not sure? All courses have a 30-day money-back guarantee</p>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-dark">View paid Web Development courses</button>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <h5>Free courses</h5>
+                <ul class="list-group">
+                    <li class="list-group-item"><span class="tick-symbol">&#10004;</span> Online video content</li>
+                    <li class="list-group-item"><span class="cross-symbol">&#10008;</span> Certificate of completion</li>
+                    <li class="list-group-item"><span class="cross-symbol">&#10008;</span> Instructor Q&A</li>
+                    <li class="list-group-item"><span class="cross-symbol">&#10008;</span> Instructor direct message</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <h5>Paid courses</h5>
+                <ul class="list-group">
+                    <li class="list-group-item"><span class="tick-symbol">&#10004;</span> Online video content</li>
+                    <li class="list-group-item"><span class="tick-symbol">&#10004;</span> Certificate of completion</li>
+                    <li class="list-group-item"><span class="tick-symbol">&#10004;</span> Instructor Q&A</li>
+                    <li class="list-group-item"><span class="tick-symbol">&#10004;</span> Instructor direct message</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JavaScript -->
+<script>
+    var videoIds = ['yC9ZwDfT3b0', 'm67-bOpOoPU', 'mybVgoTqMM4'];
+    
+    var currentIndex = 0;
+
+    function playNextVideo() {
+        currentIndex++;
+        if (currentIndex < videoIds.length) {
+            var youtubePlayer = document.getElementById('youtube-player');
+            youtubePlayer.src = 'https://www.youtube.com/embed/' + videoIds[currentIndex];
+        } else {
+            currentIndex = 0;
+            var youtubePlayer = document.getElementById('youtube-player');
+            youtubePlayer.src = 'https://www.youtube.com/embed/' + videoIds[currentIndex];
+        }
+    }
+</script>
+
+{% endblock %}

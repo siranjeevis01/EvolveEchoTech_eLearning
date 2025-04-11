@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Course Details - Greensoft Groups{% endblock %}
+
+{% block content %}
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Learn and Explore</h6>
+      <h1 class="mb-5">Building Web Applications in PHP</h1>
+    </div>
+    <div class="col-lg-12">
+        <p class="mb-4">In this PHP course designed and taught by industry experts, you will learn all of the core concepts behind the PHP programming language and how you can work with it to build dynamic websites and web pages. Throughout this course, you will learn both beginner and advanced topics as part of a well-rounded curriculum and they will be the working of PHP, JSON, JSON encode, GET, POST, various PHP libraries and functions, as well as manipulation of files and directories to name a few. You will also learn to work with different PHP environments. After this course, you will gain a globally recognized certificate to indicate that you’ve mastered the PHP programming language.</p>
+        {% if course.join_now_slug %}
+            <a href="{% url 'enroll_course' course.join_now_slug %}" class="btn btn-light">Join Now</a>
+        {% else %}
+            <p>Course details not available</p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Certificates</h6>
+      <h1 class="mb-5">Build your subject-matter expertise</h1>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <h5 class="mt-4">Learn new concepts from industry experts</h5>
+        <h5 class="mt-4">Gain a foundational understanding of a subject or tool</h5>
+        <h5 class="mt-4">Develop job-relevant skills with hands-on projects</h5>
+        <h5 class="mt-4">Earn a shareable career certificate</h5>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+        <div class="position-relative h-100">
+            <img class="img-fluid position-absolute w-100 h-100" src="https://i.postimg.cc/FFBHrQ3n/a7c5400e51272c78b710ce9b56fd3178.avif" alt="" style="object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Certificates</h6>
+      <h1 class="mb-5">Earn a career certificate</h1>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+        <div class="position-relative h-100">
+            <img class="img-fluid position-absolute w-100 h-100" src="https://i.postimg.cc/C1XBggRB/certificate.avif" alt="" style="object-fit: cover;">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p class="mb-4">Add this credential to your LinkedIn profile, resume, or CV</p>
+        <p class="mb-4">Share it on social media and in your performance review</p>
+        <p class="mb-4">Certificates are globally recognized & they upgrade your programming profile.</p>
+        <p class="mb-4">Certificates are generated after the completion of the course.</p>
+        <h6 class="mb-4">Details to know</h6>
+        <i class="fab fa-linkedin-in text-primary"></i>
+        <p class="mb-4">Shareable certificate</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">PHP Paid Course</h6>
+      <h1 class="mb-5">There are 5 modules in this course</h1>
+    </div>
+    <div class="col-lg-12">
+        <p class="mb-4">Welcome to our paid PHP course! This course covers advanced Python concepts.</p>
+        {% if course.join_now_slug %}
+            <a href="{% url 'enroll_course' course.join_now_slug %}" class="btn btn-light">Join Now</a>
+        {% else %}
+            <p>Course details not available</p>
+        {% endif %}
+        <p class="mb-4">This course is designed to teach you the foundations in order to write simple programs in Python using the most common structures. No previous exposure to programming is needed. By the end of this course, you will understand the benefits of programming in IT roles; understand basic Python syntax; explore different code editors and developer environments; be able to write simple programs using Python; figure out how the building blocks of programming fit together; and combine all of this knowledge to solve a complex programming problem. </p>
+        <h6 class="mb-4">Applied Learning Project</h6>
+        <p class="mb-4">We'll start off by diving into the basics of writing a computer program. Along the way, you’ll get hands-on experience with programming concepts through interactive exercises and real-world examples. You’ll quickly start to see how computers can perform a multitude of tasks — you just have to write code that tells them what to do.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Topics Covered</h6>
+      <h1 class="mb-5">PHP Course Topics You will Learn</h1>
+    </div>
+    <div class="col-lg-12">
+      <div class="accordion" id="accordionModules">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-1">
+            <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-1" aria-expanded="true" aria-controls="moduleCollapse-1">
+              <i class="fa fa-arrow-right text-info me-2"></i> Beginner Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-1" class="accordion-collapse collapse show" aria-labelledby="moduleHeading-1" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>PHP History</li>
+                    <li>How to Use XAMPP and Geany</li>
+                    <li>PHP Installation</li>
+                    <li>PHP Hello World</li>
+                    <li>PHP Variables</li>
+                    <li>PHP Constants</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-2">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-2" aria-expanded="false" aria-controls="moduleCollapse-2">
+              <i class="fa fa-arrow-right text-info me-2"></i> Intermediate Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-2" class="accordion-collapse collapse" aria-labelledby="moduleHeading-2" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>PHP Boolean</li>
+                    <li>PHP Numbers</li>
+                    <li>PHP String</li>
+                    <li>PHP String Functions</li>
+                    <li>PHP For Loop</li>
+                    <li>PHP Casting</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-3">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-3" aria-expanded="false" aria-controls="moduleCollapse-3">
+              <i class="fa fa-arrow-right text-info me-2"></i> Advanced Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-3" class="accordion-collapse collapse" aria-labelledby="moduleHeading-3" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>PHP Array</li>
+                    <li>PHP Foreach</li>
+                    <li>PHP While and Do...While</li>
+                    <li>PHP If, If Else and Switch</li>
+                    <li>PHP Pointers</li>
+                    <li>PHP Class Extends Members</li>
+                </ul>                                
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-4">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-4" aria-expanded="false" aria-controls="moduleCollapse-4">
+              <i class="fa fa-arrow-right text-info me-2"></i> Expert Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-4" class="accordion-collapse collapse" aria-labelledby="moduleHeading-4" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>PHP DATABASE Connectivity</li>
+                    <li>PHP JSON and JSON Encode</li>
+                    <li>PHP DATABASE Insert</li>
+                    <li>PHP GET and POST</li>
+                    <li>PHP Functions</li>
+                    <li>PHP Cookies</li>
+                </ul>                                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Benefits</h6>
+      <h1 class="mb-5">After this Course, You will be Able to</h1>
+    </div>
+    <div class="col-lg-12">
+        <p class="mb-4">Create and manipulate lists, tuples, and dictionaries to store and retrieve data.</p>
+        <p class="mb-4">Write conditional statements and loops to automate tasks and solve problems.</p>
+        <p class="mb-4">Debug errors in your Python code using tools like breakpoints, watch variables, and step-in/step-out.</p>
+        <p class="mb-4">Understand how to use external libraries and APIs to extend Python's functionality.</p>
+        <p class="mb-4">Read and write data from/to different file formats like Excel, JSON, and MySQL.</p>
+        <p class="mb-4">Create and use functions to encapsulate and reuse code for repetitive tasks, improving code readability and maintenance.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">FAQ</h6>
+      <h1 class="mb-5">Frequently Asked Questions</h1>
+    </div>
+    <div class="col-lg-12">
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingOne">
+            <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                What is the PHP course?
+            </button>
+          </h2>
+          <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                PHP is an acronym for ‘Hypertext Preprocessor’ and it is a widely used server-side scripting language that is incredibly fast and powerful. And a PHP course helps you master all of the PHP fundamental concepts and teaches how to implement them through hands-on practice quizzes as well as real-world projects. PHP can also be embedded into HTML and used on the front end making it a great option for software developers and engineers.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                Can I learn PHP in 3 months?
+            </button>
+          </h2>
+          <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                The amount of time required to learn PHP varies for all individuals, but if you are dedicated and commit a good amount of time daily, it is very much possible for you to learn and implement PHP within 3-4 months. This is because PHP has a much simpler syntax compared to other programming languages making it one of the most beginner-friendly programming languages to start learning with especially for people interested in backend development.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                Why choose Greensoft Groups for a PHP course ?
+            </button>
+          </h2>
+          <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                The PHP course offered by Greensoft Groups teaches you all the core PHP concepts and how to implement them with hands-on practice quizzes. With this course, you will be able to master concepts such as coding with PHP, using PHP library functions to write programs, manipulating PHP files and directories, JSON, JSON encode, GET, POST, and performing database tasks to name a few. This course is self-paced, designed, and taught by industry experts with years of experience and you will gain a globally recognized certificate upon completion.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingFour">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                What is a PHP certification course?
+            </button>
+          </h2>
+          <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                The PHP certification course certifies learners based on their skills and knowledge related to PHP programming and provides them with an edge in interviews amongst top organizations helping them land high-paying jobs. In this PHP course , you will learn several fundamental concepts such as JSON, JSON encode, GET, POST, coding with PHP, using PHP library functions to write programs, as well as manipulating PHP files and directories among others.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingFive">
+              <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                Is PHP coding easy?
+              </button>
+            </h2>
+            <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes, coding with PHP is pretty easy as it has a simple syntax and is easy to learn. Its syntax is very similar to HTML and it even has some HTML embedded in its code, as you can reuse blocks of code as well as built-in functions, PHP is considered to be one of the simplest programming languages out there.
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

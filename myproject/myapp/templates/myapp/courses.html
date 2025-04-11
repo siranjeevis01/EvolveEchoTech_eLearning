@@ -1,0 +1,65 @@
+<!-- courses.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Courses - EvolveEcho Tech
+{% endblock %}
+
+{% block content %}
+
+<!-- Header Start -->
+<div class="container-fluid headerbg py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">My Enrolled Courses</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="textcl" href="{% url 'index' %}"><b>Home</b></a></li>
+                        <li class="breadcrumb-item textcl active" aria-current="page"><b>Enrolled Courses</b></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-info px-3">My Enrolled Courses</h6>
+            <h1 class="mb-5">Courses</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            {% if enrolled_courses %}
+            {% for enrollment in enrolled_courses %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="course-item bg-light">
+                    <div class="position-relative overflow-hidden">
+                        <!-- Assuming the Course model has an 'image' field -->
+                        <img class="img-fluid" src="{{ enrollment.course.image.url }}" alt="{{ enrollment.course.title }}">
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                            <a href="{% url 'join_now_page' join_now_slug=enrollment.course.join_now_slug %}" class="flex-shrink-0 btn btn-sm btn-light px-3" style="border-radius: 0 30px 30px 0;">View Course Details</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        <h3 class="mb-4">{{ enrollment.course.title }}</h3>
+                    </div>
+                    <div class="d-flex border-top">
+                        {% comment %} <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-info me-2"></i>{{ enrollment.course.instructor.name }}</small> {% endcomment %}
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-info me-2"></i>{{ enrollment.course.duration }}</small>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+              <p>You have not enrolled in any courses yet.</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-4">Back to Home</a>
+    </div>
+</div>
+
+{% endblock %}

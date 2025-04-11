@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Course Details - Greensoft Groups{% endblock %}
+
+{% block content %}
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Learn and Explore</h6>
+      <h1 class="mb-5">Crash Course on Python</h1>
+    </div>
+    <div class="col-lg-12">
+        <p class="mb-4">Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! This free Python course will give you that core, solid understanding of the Python programming language. You will not only be learning Python, but you will be learning industry best practices for Python programming that real employers demand. Python is a popular programming language used across industries, from tech to finance, and can help you land jobs in data analysis, software development, and more. With our beginner-friendly curriculum, you'll be able to confidently use Python in everyday applications and understand its potential for advanced programming. Plus, with a IITM Pravartak certified Python certification, you'll have a valuable credential to showcase on your resume.</p>
+        {% if course.slug %}
+            <a href="{% url 'enrollment' course.slug %}" class="btn btn-dark py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        {% else %}
+            <span class="btn btn-dark py-4 px-lg-5 d-none d-lg-block disabled">Join Now<i class="fa fa-arrow-right ms-3"></i></span>
+        {% endif %}     
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Certificates</h6>
+      <h1 class="mb-5">Build your Support and Operations expertise</h1>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <h5 class="mt-4">Learn new concepts from industry experts</h5>
+        <h5 class="mt-4">Gain a foundational understanding of a subject or tool</h5>
+        <h5 class="mt-4">Develop job-relevant skills with hands-on projects</h5>
+        <h5 class="mt-4">Earn a shareable career certificate from Google</h5>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+        <div class="position-relative h-100">
+            <img class="img-fluid position-absolute w-100 h-100" src="https://i.postimg.cc/FFBHrQ3n/a7c5400e51272c78b710ce9b56fd3178.avif" alt="" style="object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Certificates</h6>
+      <h1 class="mb-5">Earn a career certificate</h1>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+        <div class="position-relative h-100">
+            <img class="img-fluid position-absolute w-100 h-100" src="https://i.postimg.cc/C1XBggRB/certificate.avif" alt="" style="object-fit: cover;">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p class="mb-4">Add this credential to your LinkedIn profile, resume, or CV</p>
+        <p class="mb-4">Share it on social media and in your performance review</p>
+        <p class="mb-4">Certificates are globally recognized & they upgrade your programming profile.</p>
+        <p class="mb-4">Certificates are generated after the completion of the course.</p>
+        <h6 class="mb-4">Details to know</h6>
+        <i class="fab fa-linkedin-in text-primary"></i>
+        <p class="mb-4">Shareable certificate</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Python Paid Course</h6>
+      <h1 class="mb-5">There are 5 modules in this course</h1>
+    </div>
+    <div class="col-lg-12">
+        <p class="mb-4">Welcome to our paid Python course! This course covers advanced Python concepts.</p>
+        {% if course.slug %}
+            <a href="{% url 'enrollment' course.slug %}" class="btn btn-dark py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        {% else %}
+            <span class="btn btn-dark py-4 px-lg-5 d-none d-lg-block disabled">Join Now<i class="fa fa-arrow-right ms-3"></i></span>
+        {% endif %}     
+        <p class="mb-4">This course is designed to teach you the foundations in order to write simple programs in Python using the most common structures. No previous exposure to programming is needed. By the end of this course, you will understand the benefits of programming in IT roles; understand basic Python syntax; explore different code editors and developer environments; be able to write simple programs using Python; figure out how the building blocks of programming fit together; and combine all of this knowledge to solve a complex programming problem. </p>
+        <h6 class="mb-4">Applied Learning Project</h6>
+        <p class="mb-4">We'll start off by diving into the basics of writing a computer program. Along the way, you’ll get hands-on experience with programming concepts through interactive exercises and real-world examples. You’ll quickly start to see how computers can perform a multitude of tasks — you just have to write code that tells them what to do.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Topics Covered</h6>
+      <h1 class="mb-5">Python Course Topics You will Learn</h1>
+    </div>
+    <div class="col-lg-12">
+      <div class="accordion" id="accordionModules">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-1">
+            <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-1" aria-expanded="true" aria-controls="moduleCollapse-1">
+              <i class="fa fa-arrow-right text-info me-2"></i> Beginner Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-1" class="accordion-collapse collapse show" aria-labelledby="moduleHeading-1" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+              <ul>
+                <li>Course Overview</li>
+                <li>Why Python</li>
+                <li>Python IDE</li>
+                <li>Hello World Program</li>
+                <li>Numbers and Math Functions</li>
+                <li>Common Errors in Python</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-2">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-2" aria-expanded="false" aria-controls="moduleCollapse-2">
+              <i class="fa fa-arrow-right text-info me-2"></i> Intermediate Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-2" class="accordion-collapse collapse" aria-labelledby="moduleHeading-2" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>Variables & Names</li>
+                    <li>String Basics</li>
+                    <li>Conditional Statements</li>
+                    <li>Functions</li>
+                    <li>For and While Loop</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-3">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-3" aria-expanded="false" aria-controls="moduleCollapse-3">
+              <i class="fa fa-arrow-right text-info me-2"></i> Advanced Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-3" class="accordion-collapse collapse" aria-labelledby="moduleHeading-3" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>Functions as Arguments</li>
+                    <li>List</li>
+                    <li>Tuple</li>
+                    <li>Dictionaries</li>
+                    <li>List Comprehension</li>
+                    <li>File Handling</li>
+                    <li>Debugging in Python</li>
+                    <li>Class and Objects</li>
+                </ul>                
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="moduleHeading-4">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#moduleCollapse-4" aria-expanded="false" aria-controls="moduleCollapse-4">
+              <i class="fa fa-arrow-right text-info me-2"></i> Expert Module
+            </button>
+          </h2>
+          <div id="moduleCollapse-4" class="accordion-collapse collapse" aria-labelledby="moduleHeading-4" data-bs-parent="#accordionModules">
+            <div class="accordion-body">
+                <ul>
+                    <li>Lambda, Filters and Map</li>
+                    <li>Python PIP</li>
+                    <li>Read Excel Data in Python</li>
+                    <li>Python MySQL</li>
+                    <li>Iterators</li>
+                    <li>Pickling</li>
+                    <li>Python JSON</li>
+                </ul>                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">Benefits</h6>
+      <h1 class="mb-5">After this Course, You will be Able to</h1>
+    </div>
+    <div class="col-lg-12">
+        <p class="mb-4">Create and manipulate lists, tuples, and dictionaries to store and retrieve data.</p>
+        <p class="mb-4">Write conditional statements and loops to automate tasks and solve problems.</p>
+        <p class="mb-4">Debug errors in your Python code using tools like breakpoints, watch variables, and step-in/step-out.</p>
+        <p class="mb-4">Understand how to use external libraries and APIs to extend Python's functionality.</p>
+        <p class="mb-4">Read and write data from/to different file formats like Excel, JSON, and MySQL.</p>
+        <p class="mb-4">Create and use functions to encapsulate and reuse code for repetitive tasks, improving code readability and maintenance.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title bg-white text-center text-info px-3">FAQ</h6>
+      <h1 class="mb-5">Frequently Asked Questions</h1>
+    </div>
+    <div class="col-lg-12">
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingOne">
+            <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                What is a Python course?
+            </button>
+          </h2>
+          <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                A Python course is a structured program that teaches individuals how to write, read, and understand code in the Python programming language. The course covers various topics, including basic programming concepts, data types, control structures, and functions.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                Which is the best online Python course?
+            </button>
+          </h2>
+          <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                The best online Python course is one that matches your learning goals, experience level, and preferred learning style. At Greensoft Groups, our Python course is designed for beginners with no prior coding experience, making it a great choice for those looking to start their Python journey. You can access the complete course modules for FREE.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                How to learn a Python course?
+            </button>
+          </h2>
+          <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                To learn a Python course, enroll in an online program like Greensoft Groups's self-paced free Python course, which provides interactive lessons, quizzes, and assignments. You can also find resources like Python documentation, books, and video tutorials to supplement your learning.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingFour">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                Why learn Python courses online?
+            </button>
+          </h2>
+          <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Learning Python courses online allows you to access high-quality educational resources from anywhere in the world, at any time that suits you. Online courses also tend to be more affordable than traditional classroom-based programs and offer flexible learning options to fit your schedule.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingFive">
+              <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                What are the benefits of learning Python from Greensoft Groups?
+              </button>
+            </h2>
+            <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Learning Python from Greensoft Groups provides several benefits, including:
+                <ul>
+                    <li>Beginner-friendly curriculum designed for those with no prior coding experience</li>
+                    <li>Self-paced program with interactive lessons, quizzes, and assignments</li>
+                    <li>IIT-M certification upon completion to showcase on your resume</li>
+                    <li>FREE access to complete course modules, pay a nominal fee for IITM Pravartak certified Python certification</li>
+                    <li>Access to an online community for support and networking opportunities</li>
+                    <li>Affordable pricing and flexible learning options</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

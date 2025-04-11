@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Header Start -->
+<div class="container-fluid headerbg py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Sign Up</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="textcl" href="{% url 'index' %}"><b>Home</b></a></li>
+                        <li class="breadcrumb-item textcl active" aria-current="page"><b>Sign Up</b></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<section>
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100 mt-5">
+            <div class="col-md-9 col-lg-6 col-xl-5 mb-5">
+                <img src="https://i.postimg.cc/3xdSwqx3/high-ranking-website-vector-illustration-969863-20991.avif" class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                        <p class="lead fw-normal mb-2 me-3">Sign Up</p>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="form3Example1" name="username" class="form-control form-control-lg"
+                               placeholder="Enter your username" value="{{ form.username.value|default_if_none:'' }}"/>
+                        <label class="form-label" for="form3Example1">Username</label>
+                        {% if form.username.errors %}
+                            <div class="text-danger">
+                                {% for error in form.username.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="email" id="form3Example2" name="email" class="form-control form-control-lg"
+                                   placeholder="Enter your email" value="{{ form.email.value|default_if_none:'' }}"/>
+                            <label class="form-label" for="form3Example2">Email</label>
+                            {% if form.email.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.email.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="form3Example3" name="password1" class="form-control form-control-lg"
+                               placeholder="Enter password" value="{{ form.password1.value|default_if_none:'' }}"/>
+                        <label class="form-label" for="form3Example3">Password</label>
+                        {% if form.password1.errors %}
+                            <div class="text-danger">
+                                {% for error in form.password1.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="form3Example4" name="password2" class="form-control form-control-lg"
+                               placeholder="Enter password again" value="{{ form.password2.value|default_if_none:'' }}"/>
+                        <label class="form-label" for="form3Example4">Password confirmation</label>
+                        {% if form.password2.errors %}
+                            <div class="text-danger">
+                                {% for error in form.password2.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-secondary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Sign Up</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="{% url 'signin' %}" class="link-danger">Sign In</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

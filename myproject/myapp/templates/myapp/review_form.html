@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Submit a Review for {{ course.title }}</h2>
+
+<form action="{% url 'submit_review' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="course_id" value="{{ course.id }}">
+    <label for="rating">Rating:</label>
+    <input type="number" name="rating" min="1" max="5" required>
+    <label for="comment">Comment:</label>
+    <textarea name="comment" required></textarea>
+    <button type="submit">Submit Review</button>
+</form>
+
+
+{% endblock %}

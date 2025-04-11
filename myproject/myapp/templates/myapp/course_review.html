@@ -1,0 +1,22 @@
+<!-- templates/yourapp/course_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }} - Details{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+    <h2>Reviews</h2>
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>{{ review.name }} - {{ review.rating }} stars - {{ review.review }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews available.</p>
+    {% endif %}
+    <a href="{% url 'submit_review' %}?course_id={{ course.id }}" class="btn btn-primary">Submit a Review</a>
+</div>
+{% endblock %}

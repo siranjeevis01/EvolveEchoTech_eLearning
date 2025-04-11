@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Course Confirmation - Greensoft Groups
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4 class="card-title mb-0">Registration Confirmation</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        <h5 class="alert-heading">Congratulations!</h5>
+                        <p>You have successfully registered for the course: <strong>{{ course.title }}</strong>. Please find the details below:</p>
+                    </div>
+
+                    <h5>Course Information</h5>
+                    <p><strong>Course Title:</strong> {{ course.title }}</p>
+                    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+                    <p><strong>Duration:</strong> {{ course.duration }}</p>
+
+                    <h5>Your Registration Details</h5>
+                    <p><strong>Full Name:</strong> {{ registration.full_name }}</p>
+                    <p><strong>Date of Birth:</strong> {{ registration.dob }}</p>
+                    <p><strong>Gender:</strong> {{ registration.gender }}</p>
+                    <p><strong>Address:</strong> {{ registration.area }}, {{ registration.city }}, {{ registration.state }} - {{ registration.zip_code }}</p>
+                    <p><strong>Phone Number:</strong> {{ registration.phone_number }}</p>
+                    <p><strong>Email:</strong> {{ registration.email }}</p>
+                    <p><strong>Course Framework:</strong> {{ registration.course_framework }}</p>
+                    <p><strong>Start Date:</strong> {{ registration.start_date }}</p>
+                    <div class="mt-4">
+                        {% if course.join_now_slug %}
+                            <a href="{% url 'slug_page' course.join_now_slug %}">
+                                <button class="btn btn-primary">Go to {{ course.title }} Details</button>
+                            </a>
+                        {% else %}
+                            <p>No link available for this course.</p>
+                        {% endif %}
+                        <a href="{% url 'index' %}" class="btn btn-dark">Back to Home</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

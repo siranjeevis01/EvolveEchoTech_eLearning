@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Courses - Greensoft Groups
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ category.title }} Courses</h1>
+<ul>
+    {% for course in courses %}
+        <li>
+            <img src="{{ course.image.url }}" alt="{{ course.title }}" width="150px" height="150px">
+            <p>{{ course.title }}</p>
+            <p>Price: {{ course.price }}</p>
+            <p>Duration: {{ course.duration }}</p>
+            <p>Students: {{ course.students }}</p>
+            <p>Rating: {{ course.stars }} stars</p>
+            <p>Instructor: {{ course.instructor.name }}</p>
+            <a href="{% url 'join_course' course.id %}">Join Now</a> |
+            <a href="{% url 'course_overview' course.id %}">Read More</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+  <h2>{{ video.title }}</h2>
+  <p>{{ video.description }}</p>
+  <h3>Reviews</h3>
+  <ul>
+    {% for review in reviews %}
+      <li>{{ review.content }} - {{ review.user.username }}</li>
+    {% endfor %}
+  </ul>
+  <h3>Related Videos</h3>
+  <ul>
+    {% for related_video in related_videos %}
+      <li><a href="{% url 'video_detail' related_video.related_video.id %}">{{ related_video.related_video.title }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_review' video.id %}">Add Review</a>
+{% endblock %}

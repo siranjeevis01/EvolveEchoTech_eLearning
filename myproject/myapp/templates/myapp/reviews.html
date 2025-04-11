@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Reviews - Greensoft Groups
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Reviews</h1>
+    <div class="justify-content-center">
+        {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                        <li>
+                            <strong>{{ review.name }}</strong> - {{ review.rating }} stars<br>
+                            {{ review.review }}<br>
+                            <small>Posted on {{ review.created_at }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No reviews available.</p>
+            {% endif %}
+            <a href="{% url 'php_development' %}">Back to PHP Development</a>
+    </div>
+    
+    
+    
+{% endblock %}
